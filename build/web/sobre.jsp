@@ -12,6 +12,7 @@
         <title>Página Sobre</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>Sobre</h1>
         <p>Nome: Victor Luã Lorena de Menezes</p>
         <p>RA: 1290481913035</p>

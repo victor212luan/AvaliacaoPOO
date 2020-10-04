@@ -28,6 +28,7 @@
         <title>Home</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>Página Inicial</h1>
         <p>Nome: Victor Luã Lorena de Menezes</p>
         <p>RA: 1290481913035</p>

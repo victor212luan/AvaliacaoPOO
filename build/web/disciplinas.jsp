@@ -30,6 +30,7 @@
         <title>Minhas Disciplinas</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>Minhas Disciplinas</h1>
         <table border="1">
             <tr>
