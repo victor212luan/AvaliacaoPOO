@@ -9,13 +9,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     
-    ArrayList<Disciplina> lstDisciplinas = Disciplina.getList((ArrayList)application.getAttribute("disciplina"));
+    ArrayList<Disciplina> minhasDisciplinas = (ArrayList) application.getAttribute("disciplina");
+    if(minhasDisciplinas == null){
+        minhasDisciplinas = Disciplina.getList();
+        
+        application.setAttribute("disciplina", minhasDisciplinas);
+    }
     
     if(request.getParameter("alt")!= null){
         int index = Integer.parseInt(request.getParameter("index"));
         double nota = Double.parseDouble(request.getParameter("nota"));
         if(nota >= 0 && nota <= 10){
-            lstDisciplinas.get(index).setNota(nota);
+            minhasDisciplinas.get(index).setNota(nota);
             response.sendRedirect(request.getRequestURI());
         } else {
             out.println("<script>alert('Digite uma nota entre 0 e 10')</script>");
@@ -36,18 +41,20 @@
             <tr>
                 <th>Nome</th>
                 <th>Ementa</th>
+                <th>Ciclo</th>
                 <th>Nota</th>
                 <th>(Re)definir nota</th>
             </tr>
-            <%for(int i=0; i<lstDisciplinas.size(); i++){%>
-                <% Disciplina disciplina = lstDisciplinas.get(i); %>
+            <%for(int i=0; i<minhasDisciplinas.size(); i++){%>
+                <% Disciplina disciplina = minhasDisciplinas.get(i); %>
                 <tr>
                     <td><%= disciplina.getNome() %></td>
                     <td><%= disciplina.getEmenta() %></td>
+                    <td><%= disciplina.getCiclo()%></td>
                     <td><%= disciplina.getNota() %></td>
                     <td>
                         <form>
-                            <input type="text" name="nota" />
+                            <input type="number" name="nota" min="0" max="10" />
                             <input type="submit" name="alt" value="Alterar"/>
                             <input type="hidden" name="index" value="<%= i %>"/>
                         </form>
