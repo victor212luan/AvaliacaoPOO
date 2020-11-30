@@ -24,6 +24,7 @@ public class DBListener implements ServletContextListener{
         
         try{
             Class.forName(CLASS_NAME);
+            conn = getConnection();
             
             stmt = conn.createStatement();
             stmt.execute(Disciplina.getCreateStatement());
