@@ -7,14 +7,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="avaliacao.Disciplina"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    ArrayList<Disciplina> disciplina = (ArrayList) application.getAttribute("disciplina");
-    if(disciplina == null){
-        disciplina = Disciplina.getList();
-        
-        application.setAttribute("disciplina", disciplina);
-    }
-%>
 <!DOCTYPE html>
 <html>
     <head>
