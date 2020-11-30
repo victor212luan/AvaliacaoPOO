@@ -69,4 +69,9 @@ public class Disciplina {
         
         return minhasDisciplinas;
     }
+    
+    public static String getCreateStatement(){
+        return "";
+    }
 }
+
